@@ -47,7 +47,6 @@ details = weather.detailed_status
 # IE: if the details contain clouds, display the clouds icon etc.
 # Then display the appropriate icon below the weather details and temp
 
-
 # --printable items for testing
 # print(temp)
 # print(wind)
