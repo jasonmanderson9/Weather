@@ -25,7 +25,7 @@ city = data['city']
 state = data['region']
 
 # Provide API key, get location and gather weather
-owm = pyowm.OWM('237dd06c4e14bef3d3a0da24c6863dbe')
+owm = pyowm.OWM('FREE OWM API KEY')
 weather_mgr = owm.weather_manager()
 observation = weather_mgr.weather_at_place(city)
 weather = observation.weather
