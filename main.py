@@ -65,7 +65,7 @@ location_label.pack(pady=0)
 # display weather details
 weather_details = Label(win, text=str(details).title(), font=('Arial Black', 12))
 weather_details.pack(pady=0)
-weather_temp = Label(win, text=str(round(temp['temp'])) + str(degree_sign) + 'F', font=('Arial Black', 20))
+weather_temp = Label(win, text=str(round(temp['temp'])) + str(degree_sign) + 'F', font=('Arial Black', 25))
 weather_temp.pack(pady=0)
 
 # display weather icon
@@ -74,7 +74,7 @@ img_label = Label(image=weather_icon, height=180, width=250)
 img_label.pack(pady=0)
 
 # Show last updated time
-current_time_label = Label(win, text='Last Updated: ' + str(current_time.month) + '/' + str(current_time.day) + ' ' + str(current_time.hour) + ':' + str(current_time.minute), font=('Arial', 12))
+current_time_label = Label(win, text='Last Updated: ' + current_time.strftime('%m/%d/%Y %I:%M:%S'), font=('Arial', 10))
 current_time_label.pack(pady=0)
 
 win.mainloop()
