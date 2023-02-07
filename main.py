@@ -49,38 +49,38 @@ stormy = "storm.png"
 hail = "hail.png"
 
 # assign icon to weather status details:
-for s in weather.detailed_status:
-    if "cloud" in weather.detailed_status:
+for s in details:
+    if "cloud" in details:
         img_path = cloudy
-    elif "rain" in weather.detailed_status:
+    elif "rain" in details:
         img_path = rainy
-    elif "sun" in weather.detailed_status:
+    elif "sun" in details:
         img_path = sunny
-    elif "snow" in weather.detailed_status:
+    elif "snow" in details:
         img_path = snowy
-    elif "storm" in weather.detailed_status:
+    elif "storm" in details:
         img_path = stormy
-    elif "hail" in weather.detailed_status:
+    elif "hail" in details:
         img_path = hail
     else:
         print("Error: status did not match icon.")
 
-# display location
+# Display location
 location_label = Label(win, text=str(city) + ', ' + str(state), font=('Arial Black', 12))
 location_label.pack(pady=0)
 
-# display weather details
+# Display weather details
 weather_details = Label(win, text=str(details).title(), font=('Arial Black', 12))
 weather_details.pack(pady=0)
 weather_temp = Label(win, text=str(round(temp['temp'])) + str(degree_sign) + 'F', font=('Arial Black', 25))
 weather_temp.pack(pady=0)
 
-# display weather icon
+# Display weather icon
 weather_icon = ImageTk.PhotoImage(Image.open(str(img_path)))
 img_label = Label(image=weather_icon, height=180, width=250)
 img_label.pack(pady=0)
 
-# Show last updated time
+# Display last updated time
 current_time_label = Label(win, text='Last Updated: ' + current_time.strftime('%m/%d/%Y %I:%M:%S'), font=('Arial', 10))
 current_time_label.pack(pady=0)
 
