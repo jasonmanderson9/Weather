@@ -1,6 +1,6 @@
 <h1>Weather Widget</h1>
-A Weather widget that displays location, weather conditions and temperature.
-Powered by the <aherf="https://openweathermap.org/">Open Weather Map API</a>
+A Weather widget that displays location, weather conditions and temperature.<br>
+Powered by the <a href="https://openweathermap.org/">Open Weather Map API</a>
 
 <h2>Screenshots</h2>
 
