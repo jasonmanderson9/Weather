@@ -13,7 +13,7 @@ win.minsize(400, 310)
 win.maxsize(400, 310)
 win.geometry("400x310")
 win.eval('tk::PlaceWindow . center')
-win.wm_title("Weather App")
+win.wm_title("Weather Widget")
 
 # Get current time
 current_time = datetime.datetime.now()
@@ -25,7 +25,7 @@ city = data['city']
 state = data['region']
 
 # Provide API key, get location and gather weather
-owm = pyowm.OWM('FREE OWM API KEY')
+owm = pyowm.OWM('FREE OPM API KEY')
 weather_mgr = owm.weather_manager()
 observation = weather_mgr.weather_at_place(city)
 weather = observation.weather
@@ -40,23 +40,30 @@ clouds = weather.clouds
 temp = weather.temperature('fahrenheit')
 details = weather.detailed_status
 
-# --Determine icon forloop:
-# Have list of weather icons to choose from
-# Get icons from here: https://iconarchive.com/tag/weather
-# Check for keywords in the details variable to determine which icon to use
-# IE: if the details contain clouds, display the clouds icon etc.
-# Then display the appropriate icon below the weather details and temp
+# list of weather icons
+cloudy = "clouds.png"
+rainy = "rain.png"
+sunny = "sun.png"
+snowy = "snow.png"
+stormy = "storm.png"
+hail = "hail.png"
 
-# --printable items for testing
-# print(temp)
-# print(wind)
-# print(humidity)
-# print(rain)
-# print(heat)
-# print(clouds)
-# print(details)
-# print(city)
-# print(state)
+# assign icon to weather status details:
+for s in weather.detailed_status:
+    if "cloud" in weather.detailed_status:
+        img_path = cloudy
+    elif "rain" in weather.detailed_status:
+        img_path = rainy
+    elif "sun" in weather.detailed_status:
+        img_path = sunny
+    elif "snow" in weather.detailed_status:
+        img_path = snowy
+    elif "storm" in weather.detailed_status:
+        img_path = stormy
+    elif "hail" in weather.detailed_status:
+        img_path = hail
+    else:
+        print("Error: status did not match icon.")
 
 # display location
 location_label = Label(win, text=str(city) + ', ' + str(state), font=('Arial Black', 12))
@@ -69,7 +76,7 @@ weather_temp = Label(win, text=str(round(temp['temp'])) + str(degree_sign) + 'F'
 weather_temp.pack(pady=0)
 
 # display weather icon
-weather_icon = ImageTk.PhotoImage(Image.open("clouds.png"))
+weather_icon = ImageTk.PhotoImage(Image.open(str(img_path)))
 img_label = Label(image=weather_icon, height=180, width=250)
 img_label.pack(pady=0)
 
