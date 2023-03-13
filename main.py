@@ -49,21 +49,20 @@ stormy = "storm.png"
 hail = "hail.png"
 
 # assign icon to weather status details:
-for s in details:
-    if "cloud" in details:
-        img_path = cloudy
-    elif "rain" in details:
-        img_path = rainy
-    elif "sun" in details:
-        img_path = sunny
-    elif "snow" in details:
-        img_path = snowy
-    elif "storm" in details:
-        img_path = stormy
-    elif "hail" in details:
-        img_path = hail
-    else:
-        print("Error: status did not match icon.")
+if "cloud" in details:
+    img_path = cloudy
+elif "rain" in details:
+    img_path = rainy
+elif "sun" in details:
+    img_path = sunny
+elif "snow" in details:
+    img_path = snowy
+elif "storm" in details:
+    img_path = stormy
+elif "hail" in details:
+    img_path = hail
+else:
+    print("Error: status did not match icon.")
 
 # Display location
 location_label = Label(win, text=str(city) + ', ' + str(state), font=('Arial Black', 12))
